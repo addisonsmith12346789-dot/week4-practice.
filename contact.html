@@ -22,21 +22,33 @@
     </nav>
   </header>
 
-  <main id="main-content">
+<main>
+  <h1>Share a Haunting</h1>
 
-    <h2>Contact Hauntings in Virginia</h2>
+  <p>
+    Have you experienced something unexplained in Virginia? 
+    Share your story, recommend a haunted location, or tell us 
+    about a paranormal experience.
+  </p>
 
-    <p>
-      Do you have a haunted story, unusual experience, or Virginia location
-      that you think should be featured on this website?
-    </p>
+  <form action="#" method="post">
 
-    <p>
-     Have a haunted location to recommend?
-    <a href="contact.html">Contact us</a>.
-    </p>
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
 
-  </main>
+    <label for="email">Email Address</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="location">Haunted Location</label>
+    <input type="text" id="location" name="location">
+
+    <label for="message">Tell Us Your Story</label>
+    <textarea id="message" name="message" rows="6" required></textarea>
+
+    <button type="submit">Send Your Story</button>
+
+  </form>
+</main>
 
   <footer>
     <p>&copy; 2026 Hauntings in Virginia</p>
