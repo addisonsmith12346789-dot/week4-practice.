@@ -127,3 +127,43 @@ button[type="submit"] {
 button[type="submit"]:hover {
   background-color: #a8541f;
 }
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin: 30px 0;
+}
+
+.gallery figure {
+    margin: 0;
+}
+
+.gallery img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.gallery figcaption {
+    background-color: #3d304d;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px 0 40px;
+}
+
+.media-sources {
+    margin-top: 30px;
+}
+
+@media (max-width: 700px) {
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+}
