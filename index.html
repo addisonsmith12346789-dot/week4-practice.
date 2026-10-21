@@ -57,9 +57,49 @@
 
   </main>
 
+<section id="location-check">
+  <h2>Explore Haunted Locations Near You</h2>
+  <p>
+    Want to explore the paranormal? Find your current
+    coordinates to help plan your next investigation.
+  </p>
+
+  <button onclick="getLocation()">
+    Check My Location
+  </button>
+
+  <p id="location-message"></p>
+</section>
   <footer>
     <p>&copy; 2026 Hauntings in Virginia</p>
   </footer>
+<script>
+  function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        showPosition,
+        showError
+      );
+    } else {
+      showError();
+    }
+  }
 
+  function showPosition(position) {
+    var lat = position.coords.latitude.toFixed(1);
+    var lon = position.coords.longitude.toFixed(1);
+
+    document.getElementById("location-message").textContent =
+      "Your current coordinates are " + lat + ", " + lon +
+      ". You're ready to start planning your next paranormal investigation!";
+  }
+
+  function showError() {
+    document.getElementById("location-message").textContent =
+      "We couldn't access your location. Check your browser permissions and try again. You can still explore our haunted locations!";
+  }
+</script>
+</body>
+</html>
 </body>
 </html>
