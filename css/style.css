@@ -9,6 +9,12 @@ body {
   box-sizing: border-box;
 }
 
+.site-name {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
 input,
 textarea {
   display: block;
@@ -16,6 +22,7 @@ textarea {
   max-width: 600px;
   box-sizing: border-box;
   margin-top: 0.35rem;
+  margin-bottom: 1rem;
   padding: 12px;
   font-family: inherit;
   font-size: 1rem;
@@ -27,10 +34,11 @@ textarea {
   min-height: 150px;
 }
 
-button[type="submit"] {
-  display: block;
-  margin-top: 2rem;
-  background-color: #c1652b;
+button[type="submit"],
+#location-check button {
+  display: inline-block;
+  margin-top: 1rem;
+  background-color: #a8541f;
   color: #ffffff;
   font-family: inherit;
   font-size: 1.1rem;
@@ -41,8 +49,9 @@ button[type="submit"] {
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
-  background-color: #a8541f;
+button[type="submit"]:hover,
+#location-check button:hover {
+  background-color: #874018;
 }
 
 /* Mobile-first navigation */
@@ -85,7 +94,7 @@ nav a {
 
 .gallery figcaption {
   background-color: #3d304d;
-  color: white;
+  color: #ffffff;
   padding: 10px;
   text-align: center;
 }
