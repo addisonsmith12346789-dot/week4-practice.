@@ -2,116 +2,82 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Hauntings in Virginia | Home</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Haunted Places in Virginia | Hauntings in Virginia</title>
+  <meta name="description" content="Discover Virginia's haunted places, paranormal legends, historic locations, and stories. Explore investigations and plan your next adventure.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <header>
-    <h1>Hauntings in Virginia</h1>
-
+    <p class="site-name">Hauntings in Virginia</p>
     <nav>
       <a href="index.html" aria-current="page">Home</a>
-    <a href="about.html">About</a>
-    <a href="work.html">Haunted Locations</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
+      <a href="about.html">About</a>
+      <a href="work.html">Haunted Locations</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main id="main-content">
-<section id="location-check">
-  <h2>Plan Your Paranormal Investigation</h2>
-  <p>
-    Ready to explore the haunted places of Virginia?
-    Check your current location to help plan your next adventure.
-  </p>
+    <h1>Explore Haunted Places in Virginia</h1>
 
-  <button onclick="getLocation()">
-    Check My Location
-  </button>
+    <section id="location-check">
+      <h2>Plan Your Paranormal Investigation</h2>
+      <p>Ready to explore the haunted places of Virginia? Check your current location to help plan your next adventure.</p>
+      <button type="button" onclick="getLocation()">Check My Location</button>
+      <p id="location-message" aria-live="polite"></p>
+    </section>
 
-  <p id="location-message"></p>
-</section>
     <h2>Explore the Haunted Side of Virginia</h2>
-
     <p>
       Welcome to Hauntings in Virginia, a website dedicated to exploring
       Virginia's most mysterious and reportedly haunted locations. From
       historic buildings and abandoned places to legends passed down through
       generations, Virginia has many stories waiting to be discovered.
     </p>
-
     <p>
       Our goal is to share information about haunted locations, local legends,
       reported paranormal activity, and the history behind some of Virginia's
       most mysterious places.
     </p>
-
     <p>
-      Explore our
-      <a href="work.html">haunted locations</a>
-      to learn more about mysterious places throughout Virginia. You can also
-      view photos in our
-      <a href="gallery.html">gallery</a>
-      or contact us with a haunting story of your own.
+      Explore our <a href="work.html">haunted locations</a> to learn more about
+      mysterious places throughout Virginia. You can also view photos in our
+      <a href="gallery.html">gallery</a> or contact us with a haunting story of your own.
     </p>
-
     <p>
       Follow our latest investigations and paranormal discoveries on
-      <a href="https://www.youtube.com/" target="_blank" rel="noopener">
-        our YouTube channel
-      </a>.
+      <a href="https://www.youtube.com/" target="_blank" rel="noopener">our YouTube channel</a>.
     </p>
-
   </main>
 
-<section id="location-check">
-  <h2>Explore Haunted Locations Near You</h2>
-  <p>
-    Want to explore the paranormal? Find your current
-    coordinates to help plan your next investigation.
-  </p>
-
-  <button onclick="getLocation()">
-    Check My Location
-  </button>
-
-  <p id="location-message"></p>
-</section>
   <footer>
     <p>&copy; 2026 Hauntings in Virginia</p>
   </footer>
-<script>
-  function getLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        showPosition,
-        showError
-      );
-    } else {
-      showError();
+
+  <script>
+    function getLocation() {
+      const message = document.getElementById("location-message");
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          function (position) {
+            const lat = position.coords.latitude.toFixed(1);
+            const lon = position.coords.longitude.toFixed(1);
+            message.textContent = "Your current coordinates are " + lat + ", " + lon +
+              ". You're ready to start planning your next paranormal investigation!";
+          },
+          function () {
+            message.textContent = "We couldn't access your location. Check your browser permissions and try again. You can still explore our haunted locations!";
+          }
+        );
+      } else {
+        message.textContent = "Your browser does not support location access. You can still explore our haunted locations!";
+      }
     }
-  }
-
-  function showPosition(position) {
-    var lat = position.coords.latitude.toFixed(1);
-    var lon = position.coords.longitude.toFixed(1);
-
-    document.getElementById("location-message").textContent =
-      "Your current coordinates are " + lat + ", " + lon +
-      ". You're ready to start planning your next paranormal investigation!";
-  }
-
-  function showError() {
-    document.getElementById("location-message").textContent =
-      "We couldn't access your location. Check your browser permissions and try again. You can still explore our haunted locations!";
-  }
-</script>
-</body>
-</html>
+  </script>
 </body>
 </html>
