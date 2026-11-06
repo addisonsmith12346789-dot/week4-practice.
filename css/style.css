@@ -12,7 +12,9 @@
 body {
   margin: 0;
   box-sizing: border-box;
-  background-color: var(--cream);
+  background-color: var(--night);
+  background-image: radial-gradient(ellipse at 50% 0%, #493451 0%, #2a2133 48%, #17141d 100%);
+  background-attachment: fixed;
   color: var(--ink);
   font-family: Georgia, "Times New Roman", serif;
   line-height: 1.6;
