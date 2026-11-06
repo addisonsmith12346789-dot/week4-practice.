@@ -1,6 +1,21 @@
+/* Hauntings in Virginia color theme */
+:root {
+  --ink: #26222b;
+  --night: #211b2a;
+  --plum: #4c3561;
+  --cream: #f4f0e8;
+  --paper: #fffdf9;
+  --gold: #e4c27a;
+  --border: #cfc5d5;
+}
+
 body {
   margin: 0;
   box-sizing: border-box;
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
 }
 
 *,
@@ -9,10 +24,87 @@ body {
   box-sizing: border-box;
 }
 
+header {
+  background-color: var(--night);
+  color: var(--cream);
+  padding: 1.25rem 1.5rem;
+  border-bottom: 4px solid var(--gold);
+}
+
 .site-name {
-  font-size: 1.5rem;
+  color: var(--gold);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.7rem;
   font-weight: bold;
-  margin: 1rem 0;
+  margin: 0 0 1rem;
+  letter-spacing: 0.03em;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+nav a {
+  color: var(--cream);
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  overflow-wrap: anywhere;
+  text-decoration: none;
+  padding: 0.35rem 0.5rem;
+  border-radius: 4px;
+}
+
+nav a:hover,
+nav a[aria-current="page"] {
+  color: var(--night);
+  background-color: var(--gold);
+}
+
+main {
+  width: min(100% - 2rem, 1050px);
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background-color: var(--paper);
+  border: 1px solid #e2dbe5;
+  border-radius: 10px;
+  box-shadow: 0 5px 18px rgba(33, 27, 42, 0.08);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--plum);
+  line-height: 1.25;
+}
+
+h1 {
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.6rem;
+}
+
+a {
+  color: var(--plum);
+}
+
+a:hover {
+  color: #30213f;
+}
+
+#location-check {
+  background-color: #eee7f1;
+  border-left: 5px solid var(--plum);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  color: var(--night);
+  margin-top: 1rem;
 }
 
 input,
@@ -20,13 +112,14 @@ textarea {
   display: block;
   width: 100%;
   max-width: 600px;
-  box-sizing: border-box;
   margin-top: 0.35rem;
   margin-bottom: 1rem;
   padding: 12px;
-  font-family: inherit;
+  font-family: Arial, sans-serif;
   font-size: 1rem;
-  border: 1px solid #2f4a3d;
+  color: var(--ink);
+  background-color: #ffffff;
+  border: 1px solid #75677e;
   border-radius: 4px;
 }
 
@@ -38,40 +131,28 @@ button[type="submit"],
 #location-check button {
   display: inline-block;
   margin-top: 1rem;
-  background-color: #a8541f;
+  background-color: var(--plum);
   color: #ffffff;
-  font-family: inherit;
-  font-size: 1.1rem;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
   font-weight: bold;
   padding: 14px 28px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
 }
 
 button[type="submit"]:hover,
 #location-check button:hover {
-  background-color: #874018;
+  background-color: var(--night);
 }
 
-/* Mobile-first navigation */
-nav {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-nav a {
-  overflow-wrap: anywhere;
-}
-
-/* Wider-screen navigation */
-@media (min-width: 600px) {
-  nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-  }
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #9a6b13;
+  outline-offset: 3px;
 }
 
 .gallery {
@@ -84,6 +165,10 @@ nav a {
 .gallery figure {
   margin: 0;
   min-width: 0;
+  overflow: hidden;
+  background-color: #eee7f1;
+  border: 1px solid var(--border);
+  border-radius: 7px;
 }
 
 .gallery img {
@@ -93,10 +178,11 @@ nav a {
 }
 
 .gallery figcaption {
-  background-color: #3d304d;
-  color: #ffffff;
+  background-color: var(--night);
+  color: var(--cream);
   padding: 10px;
   text-align: center;
+  font-family: Arial, sans-serif;
 }
 
 video {
@@ -104,10 +190,55 @@ video {
   height: auto;
   display: block;
   margin: 20px 0 40px;
+  border: 3px solid var(--plum);
+  border-radius: 6px;
 }
 
 .media-sources {
   margin-top: 30px;
+  padding: 1rem;
+  background-color: #f0ebf2;
+  border-radius: 6px;
+}
+
+footer {
+  background-color: var(--night);
+  color: var(--cream);
+  text-align: center;
+  padding: 1rem;
+  border-top: 4px solid var(--gold);
+}
+
+footer p {
+  margin: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: auto;
+}
+
+.skip-link:focus {
+  left: 1rem;
+  top: 1rem;
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  color: #ffffff;
+  background-color: var(--plum);
+}
+
+/* Wider-screen navigation */
+@media (min-width: 600px) {
+  header {
+    padding: 1.5rem 2rem;
+  }
+
+  nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+  }
 }
 
 /* Two-column gallery on wider screens */
